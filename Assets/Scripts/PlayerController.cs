@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private float movementY;
 
     private int pickupCount;
+    private int goalCount;
 
     void Start()
     {
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
         pickupCount = 0;
         SetCountText();
         WinTextObject.SetActive(false);
+        var goals = GameObject.FindGameObjectsWithTag("Pickup");
+        goalCount = goals.Length;
     }
 
     private void OnMove(InputValue movementValue)
@@ -36,7 +39,8 @@ public class PlayerController : MonoBehaviour
     void SetCountText()
     {
         countText.text = "Count: " + pickupCount.ToString();
-        if(pickupCount >= 12)
+
+        if(pickupCount >= goalCount)
         {
             WinTextObject.SetActive(true);
         }
