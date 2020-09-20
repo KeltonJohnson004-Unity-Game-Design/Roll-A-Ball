@@ -6,13 +6,18 @@ using UnityEngine;
 
 public class Elevator : MonoBehaviour
 {
-    private Boolean stopped = false;
+
     private Vector3 directionToStop;
     private float stoppedTime = 0.0f;
     private float storeSpeed;
+    private float distance;
+    private Boolean isMoving = true;
 
     public GameObject ElevatorStart;
     public GameObject ElevatorStop;
+    public GameObject EnableElevator;
+    public GameObject DisableElevator;
+    public GameObject SelfElevator;
     public float speed;
 
 
@@ -21,41 +26,69 @@ public class Elevator : MonoBehaviour
     {
         transform.position = ElevatorStart.transform.position;
         directionToStop = Vector3.Normalize(ElevatorStop.transform.position - ElevatorStart.transform.position);
+        distance = Vector3.Distance(ElevatorStop.transform.position, ElevatorStart.transform.position);
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-        transform.position = transform.position + (directionToStop * speed);
-
-        if (stoppedTime <= 0.0f)
+        if (isMoving)
         {
-            if(speed == 0.0f)
-            {
-                speed = storeSpeed;
-            }
-            else if (transform.position.y > ElevatorStop.transform.position.y || transform.position.y < ElevatorStart.transform.position.y)
-            {
-                storeSpeed = -1 * speed;
-                speed = 0.0f;
-                stoppedTime = 2.0f;
+            transform.position = transform.position + (directionToStop * speed);
+            distance -= Mathf.Abs(speed);
 
-            }
-        }
-        else
-        {
-            stoppedTime -= Time.deltaTime;
-        }
-            
-        
+            if (stoppedTime <= 0.0f)
+            {
+                if (speed == 0.0f)
+                {
+                    distance = Vector3.Distance(ElevatorStop.transform.position, ElevatorStart.transform.position);
+                    speed = storeSpeed;
+                }
+                //else if (transform.position == ElevatorStop.transform.position || transform.position == ElevatorStart.transform.position)
+                else if (distance < 0)
+                {
+                    storeSpeed = -1 * speed;
+                    speed = 0.0f;
+                    stoppedTime = 2.0f;
 
+                }
+            }
+            else
+            {
+                stoppedTime -= Time.deltaTime;
+            }
+
+
+        }
 
     }
 
     private void OnTriggerStay(Collider other)
     {
-       // if (other.transform.position.y < transform.position.y)
-        //{
+        if (!EnableElevator.CompareTag("EditorOnly") || !DisableElevator.CompareTag("EditorOnly") || other.CompareTag("Pickup"))
+        {
+            EnableElevator.SetActive(true);
+            EnableElevator.layer = 0;
+           // DisableElevator.layer = 8;
+        }
+        else if (other.CompareTag("Player"))
+        {
             speed = 0;
-       // }
+            isMoving = false;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("Player") && EnableElevator.CompareTag("EditorOnly") && DisableElevator.CompareTag("EditorOnly"))
+        {
+
+            speed = storeSpeed;
+            isMoving = true;
+
+        }
+        else if(!other.CompareTag("Pickup"))
+        {
+            SelfElevator.layer = 8;
+            DisableElevator.layer = 8;
+        }
     }
 }

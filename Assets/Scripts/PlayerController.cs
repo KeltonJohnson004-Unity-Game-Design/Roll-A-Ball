@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject WinTextObject;
     public GameObject spawnPoint;
-    public GameObject respawnText;
 
     private Rigidbody rb;
     
@@ -44,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Count: " + pickupCount.ToString();
+        countText.text = "Count: " + pickupCount.ToString() + " / " + goalCount;
 
         if(pickupCount >= goalCount)
         {
@@ -65,10 +64,6 @@ public class PlayerController : MonoBehaviour
         else if(!respawnReady)
         {
             respawnReady = true;
-        }
-        else
-        {
-            respawnText.SetActive(true);
         }
 
 
@@ -99,7 +94,6 @@ public class PlayerController : MonoBehaviour
         respawnCooldown = 5.0f;
         rb.transform.position = spawnPoint.transform.position;
         rb.velocity = new Vector3(0,0,0);
-        respawnText.SetActive(false);
     }
 
 
