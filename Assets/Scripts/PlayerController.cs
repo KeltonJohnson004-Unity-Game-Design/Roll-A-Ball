@@ -26,11 +26,11 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         pickupCount = 0;
-        SetCountText();
         WinTextObject.SetActive(false);
         var goals = GameObject.FindGameObjectsWithTag("Pickup");
         goalCount = goals.Length;
         rb.transform.position = spawnPoint.transform.position;
+        SetCountText();
     }
 
     private void OnMove(InputValue movementValue)
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     void SetCountText()
     {
-        countText.text = "Count: " + pickupCount.ToString() + " / " + goalCount;
+        countText.text = "Count: " + pickupCount.ToString() + " / " + goalCount.ToString();
 
         if(pickupCount >= goalCount)
         {
