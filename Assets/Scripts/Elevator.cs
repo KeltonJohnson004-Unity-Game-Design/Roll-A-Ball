@@ -64,7 +64,7 @@ public class Elevator : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!EnableElevator.CompareTag("EditorOnly") || !DisableElevator.CompareTag("EditorOnly") || other.CompareTag("Pickup"))
+        if (!EnableElevator.CompareTag("Placeholder") || !DisableElevator.CompareTag("Placeholder") || other.CompareTag("Pickup"))
         {
             EnableElevator.SetActive(true);
             EnableElevator.layer = 0;
@@ -78,7 +78,7 @@ public class Elevator : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if(other.gameObject.CompareTag("Player") && EnableElevator.CompareTag("EditorOnly") && DisableElevator.CompareTag("EditorOnly"))
+        if(other.gameObject.CompareTag("Player") && EnableElevator.CompareTag("Placeholder") && DisableElevator.CompareTag("Placeholder"))
         {
 
             speed = storeSpeed;
