@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -48,6 +49,15 @@ public class PlayerController : MonoBehaviour
         if(pickupCount >= goalCount)
         {
             WinTextObject.SetActive(true);
+
+            if(pickupCount >= goalCount)
+            {
+                var exits = GameObject.FindGameObjectsWithTag("Exit");
+                foreach(GameObject exit in exits)
+                {
+                    exit.SetActive(false);
+                }
+            }
         }
     }
 
@@ -90,10 +100,8 @@ public class PlayerController : MonoBehaviour
 
     private void respawnPlayer()
     {
-        
-        respawnCooldown = 5.0f;
-        rb.transform.position = spawnPoint.transform.position;
-        rb.velocity = new Vector3(0,0,0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
 
 
