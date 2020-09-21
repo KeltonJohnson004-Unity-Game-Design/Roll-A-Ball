@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Pickup
   - Placeholder
+  - Doors
+  - Exit
+  - ButtonDoors
   layers:
   - Default
   - TransparentFX

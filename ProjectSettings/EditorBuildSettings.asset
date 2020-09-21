@@ -8,11 +8,17 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: d1c3109bdb54ad54c8a2b2838528e640
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/MiniGame.unity
     guid: a0b28ac4f793ebe43b51c4c052f25696
   - enabled: 1
     path: Assets/Scenes/ProBuilder.unity
     guid: 608c82d4bb8260541abf41aa78178dbc
+  - enabled: 1
+    path: Assets/Scenes/LevelHub.unity
+    guid: 6a82f3e854a527e45b70a182a812174d
+  - enabled: 1
+    path: Assets/Scenes/MaterialChangeTutorial.unity
+    guid: ac3ca84d33e9e834ebae68210b210692
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 76045ed33e617c742879b40f5293359a, type: 2}
