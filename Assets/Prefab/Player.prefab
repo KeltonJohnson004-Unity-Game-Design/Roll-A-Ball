@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b94fdccf64e347d4c839f4ade6b4ec6e, type: 2}
+  - {fileID: 2100000, guid: 11201b1baa7e61045b49b1f30f59c825, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -160,3 +160,4 @@ MonoBehaviour:
   countText: {fileID: 0}
   WinTextObject: {fileID: 0}
   spawnPoint: {fileID: 0}
+  material: {fileID: 2100000, guid: 11201b1baa7e61045b49b1f30f59c825, type: 2}

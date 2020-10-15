@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject WinTextObject;
     public GameObject spawnPoint;
+    public Material material;
 
     private Rigidbody rb;
     
@@ -32,6 +33,7 @@ public class PlayerController : MonoBehaviour
         goalCount = goals.Length;
         rb.transform.position = spawnPoint.transform.position;
         SetCountText();
+        GetComponent<Renderer>().material = material;
     }
 
     private void OnMove(InputValue movementValue)

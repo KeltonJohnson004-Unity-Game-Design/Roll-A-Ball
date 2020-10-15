@@ -17909,7 +17909,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You have completed the level
+  m_text: You have completed the level!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -18222,7 +18222,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh45956
+  m_Name: pb_Mesh76324
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19159,7 +19159,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh46040
+  m_Name: pb_Mesh20402
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19455,7 +19455,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh45972
+  m_Name: pb_Mesh20334
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -19952,7 +19952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b32affa2e801fb4f9f321d635a4591e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: {fileID: 102900000, guid: 608c82d4bb8260541abf41aa78178dbc, type: 3}
+  nextSceneName: LevelHub
+  levelToUnlock: 2
 --- !u!1 &1281116716
 GameObject:
   m_ObjectHideFlags: 0
